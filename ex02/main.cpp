@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 01:54:15 by hexa              #+#    #+#             */
-/*   Updated: 2020/05/06 03:56:02 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 19:44:49 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,22 @@ main(void)
 	std::cout << std::endl << std::endl;
 	checkString();
 
+	std::cout <<std::endl << "arr1(-1): ";
 	try
 	{
-		Array<void*>	arr(-1);
+		Array<std::string>	arr1(-1);
+		std::cout << arr1.size();
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "arr2: ";
+	try
+	{
+		Array<std::string>	arr2;
+		std::cout << arr2.size();
 	}
 	catch (std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 01:45:25 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/30 02:53:05 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 19:46:03 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ template <typename T>
 Array<T>::Array(void)
 {
 	this->m_size = 0;
-	this->m_array = new T;
 }
 
 template <typename T>
@@ -60,14 +59,15 @@ Array<T>::Array(const Array& src)
 template <typename T>
 Array<T>::~Array(void)
 {
-	delete[] this->m_array;
+	if (this->m_size > 0)
+		delete[] this->m_array;
 }
 
 template <typename T>
 T&
 Array<T>::operator[]	(unsigned int index)
 {
-	if (this->m_size <= index)
+	if (index < 0 || index >= this->m_size)
 		throw std::out_of_range("Index out of range");
 	return (this->m_array[index]);
 }

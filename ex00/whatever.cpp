@@ -6,33 +6,32 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 00:34:44 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/30 00:50:02 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 19:24:51 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <algorithm>
 
 template <typename T>
 void
 swap(T& a, T& b)
 {
-	T	c;
-
-	c = a;
+	T	c = a;
 	a = b;
 	b = c;
 }
 
 template <typename T>
-const T&
-max(const T& a, const T& b)
+T&
+max(T& a, T& b)
 {
 	return (a > b ? a : b);
 }
 
 template <typename T>
-const T&
-min(const T& a, const T& b)
+T&
+min(T& a, T& b)
 {
 	return (a < b ? a : b);
 }
@@ -55,5 +54,6 @@ main(void)
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+
 	return (0);
 }
